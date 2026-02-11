@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BehaviTracker | Admin</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="admin">
+  <header class="topbar">
+    <h1>BehaviTracker</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="students.html">Students</a>
+      <a href="rules.html">Rules</a>
+      <a href="stats.html">Statistics</a>
+      <a class="settings-link active" href="admin.html" aria-label="Settings">⚙️</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card settings-card">
+      <h2>System Settings</h2>
+      <p class="note">Use this section for high-impact app controls.</p>
+      <button id="reset-data" class="danger" type="button">Reset Defaults</button>
+    </section>
+
+    <section class="card">
+      <h2>Scoring Mode</h2>
+      <form id="mode-form" class="inline-form">
+        <label>Point entry mode
+          <select id="point-mode">
+            <option value="free">Free points only</option>
+            <option value="rules">Rules only</option>
+            <option value="both">Rules + free points</option>
+          </select>
+        </label>
+        <button type="submit">Save Mode</button>
+      </form>
+      <p class="note">Controls whether teachers can give manual points, rule-based points, or both.</p>
+    </section>
+
+    <section class="card">
+      <h2>Teachers</h2>
+      <form id="teacher-form" class="grid-form">
+        <input id="teacher-id" type="hidden" />
+        <label>Name
+          <input id="teacher-name" type="text" required />
+        </label>
+        <label>Class Lead (optional)
+          <input id="teacher-class" type="text" placeholder="e.g. 7A" />
+        </label>
+        <label>
+          <input id="teacher-active" type="checkbox" checked /> Active
+        </label>
+        <button type="submit">Save Teacher</button>
+      </form>
+      <table>
+        <thead><tr><th>Name</th><th>Class Lead</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="teachers-table-body"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Divisions</h2>
+      <div class="three-col">
+        <div>
+          <h3>Classes</h3>
+          <form id="class-form" class="inline-form"><input id="class-input" type="text" placeholder="Add class" required /><button type="submit">Add</button></form>
+          <ul id="class-list" class="chip-list"></ul>
+        </div>
+        <div>
+          <h3>Streams / Tracks</h3>
+          <form id="stream-form" class="inline-form"><input id="stream-input" type="text" placeholder="Add stream" required /><button type="submit">Add</button></form>
+          <ul id="stream-list" class="chip-list"></ul>
+        </div>
+        <div>
+          <h3>Teams</h3>
+          <form id="team-form" class="inline-form"><input id="team-input" type="text" placeholder="Add team" required /><button type="submit">Add</button></form>
+          <ul id="team-list" class="chip-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Students (Admin Actions)</h2>
+      <table>
+        <thead><tr><th>Name</th><th>Class</th><th>Stream</th><th>Team</th><th>Teacher</th><th>Actions</th></tr></thead>
+        <tbody id="admin-students-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

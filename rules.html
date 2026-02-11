@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BehaviTracker | Behaviour Rules</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="rules">
+  <header class="topbar">
+    <h1>BehaviTracker</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="students.html">Students</a>
+      <a class="active" href="rules.html">Rules</a>
+      <a href="stats.html">Statistics</a>
+      <a class="settings-link" href="admin.html" aria-label="Settings">⚙️</a>
+    </nav>
+  </header>
+
+  <main class="container two-col">
+    <section class="card">
+      <h2>Behaviour Rules</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Trigger</th>
+            <th>Points</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="rules-table-body"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2 id="rule-form-title">Add Rule</h2>
+      <form id="rule-form" class="grid-form">
+        <input id="rule-id" type="hidden" />
+        <label>Name
+          <input id="rule-name" type="text" required />
+        </label>
+        <label>Trigger
+          <input id="rule-trigger" type="text" placeholder="e.g. Respect" required />
+        </label>
+        <label>Points (+/-)
+          <input id="rule-points" type="number" required />
+        </label>
+        <label class="full-width">Description
+          <input id="rule-description" type="text" required />
+        </label>
+        <label>
+          <input id="rule-active" type="checkbox" checked /> Active
+        </label>
+        <button type="submit">Save Rule</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
