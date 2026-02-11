@@ -1,10 +1,11 @@
 :root {
-  --bg: #f4f6fb;
+  --bg: #f3f5fb;
   --card: #ffffff;
   --text: #1f2745;
   --accent: #2f59d9;
-  --border: #d8e0ff;
+  --border: #d9e2ff;
   --danger: #c93c45;
+  --muted: #63719b;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
@@ -13,49 +14,64 @@ body { margin: 0; background: var(--bg); color: var(--text); }
 
 .topbar {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.75rem;
   background: #1f2a52;
   color: #fff;
   flex-wrap: wrap;
 }
-.topbar h1 { margin: 0; font-size: 1.3rem; }
-nav { display: flex; gap: .55rem; flex-wrap: wrap; }
+.topbar h1 { margin: 0; font-size: 1.35rem; letter-spacing: .2px; }
+nav { display: flex; gap: .7rem; flex-wrap: wrap; align-items: center; }
 nav a {
   color: #fff;
   text-decoration: none;
-  padding: .35rem .65rem;
-  border-radius: 10px;
+  padding: .45rem .85rem;
+  border-radius: 12px;
 }
 nav a.active, nav a:hover { background: rgba(255, 255, 255, .2); }
 
-.container {
-  width: min(1100px, 94vw);
-  margin: 1.2rem auto;
-  display: grid;
-  gap: 1rem;
+.settings-link {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
 }
-.two-col { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.charts { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+.settings-card .danger {
+  margin-top: .35rem;
+}
+
+.container {
+  width: min(1220px, 94vw);
+  margin: 1.8rem auto 2.2rem;
+  display: grid;
+  gap: 1.25rem;
+}
+.two-col { grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+.three-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.charts { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1rem;
-  box-shadow: 0 10px 28px rgba(24, 40, 94, .08);
+  border-radius: 16px;
+  padding: 1.35rem;
+  box-shadow: 0 12px 30px rgba(24, 40, 94, .09);
 }
 
-.filters { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: .8rem; }
-label { display: grid; gap: .35rem; font-weight: 600; font-size: .95rem; }
+.filters { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.1rem; }
+label { display: grid; gap: .42rem; font-weight: 600; font-size: .95rem; }
 
 input, select, button {
   font: inherit;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #c7d2f7;
-  padding: .5rem .65rem;
+  padding: .62rem .78rem;
 }
 button {
   background: var(--accent);
@@ -71,12 +87,23 @@ button.danger { background: var(--danger); }
   padding: 0;
   font-weight: 700;
 }
+.btn-ghost {
+  background: #eef2ff;
+  color: #2b3f95;
+  margin-right: .3rem;
+}
 
 .grid-form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+.inline-form {
+  display: flex;
   gap: .75rem;
   align-items: end;
+  flex-wrap: wrap;
 }
 .full-width { grid-column: 1 / -1; }
 
@@ -88,7 +115,7 @@ table {
 th, td {
   border-bottom: 1px solid #e3e7f8;
   text-align: left;
-  padding: .55rem .45rem;
+  padding: .72rem .6rem;
 }
 
 .badge {
@@ -104,10 +131,10 @@ th, td {
 .badge.achievement { background: #e5e8ff; color: #1f3ca6; margin: 0 .4rem .4rem 0; }
 
 .summary {
-  margin: .7rem 0;
-  padding: .7rem;
+  margin: .9rem 0 1rem;
+  padding: .95rem;
   border: 1px solid #e3e7f8;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fafbff;
 }
 .badge-wrap { margin-bottom: .8rem; }
@@ -116,12 +143,34 @@ th, td {
   margin: 0;
   padding-left: 1.1rem;
   display: grid;
-  gap: .4rem;
+  gap: .55rem;
 }
 .merit { color: #14673b; }
 .demerit { color: #9e1f2b; }
+.note { color: var(--muted); margin-bottom: 0; }
+
+.chip-list {
+  list-style: none;
+  padding: 0;
+  margin: .75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+.chip-list li {
+  background: #edf1ff;
+  border-radius: 999px;
+  padding: .38rem .78rem;
+  font-size: .88rem;
+}
+.chip-list li button {
+  background: transparent;
+  color: #4055a8;
+  margin-left: .35rem;
+  padding: 0;
+}
 
 @media (max-width: 700px) {
-  .topbar { align-items: flex-start; }
-  table { font-size: .88rem; }
+  .topbar { align-items: flex-start; padding: 1rem 1rem; }
+  table { font-size: .86rem; }
 }

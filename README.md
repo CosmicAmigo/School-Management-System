@@ -1,22 +1,38 @@
-# School Management System - Merit Tracker
+# BehaviTracker (Static Frontend)
 
-A lightweight browser app for teachers to track student behaviour points with merits and demerits.
+BehaviTracker is a fully static school behaviour points website built with HTML, CSS, and JavaScript.
 
-## Features
+## Project structure
 
-- Add students
-- Award merit points (+) or apply demerit points (-)
-- Add a reason for each behaviour entry
-- See total points and recent behaviour history per student
-- Persist all data in browser Local Storage
-- Reset all data when needed
+- `index.html` — Dashboard with student table, filters, scoring form, and teacher quick-add student form
+- `students.html` — Student detail page with score, badges, and points history
+- `rules.html` — Behaviour rules management page with add/edit and active/inactive toggle
+- `stats.html` — Statistics page with Chart.js charts and ranking summaries
+- `admin.html` — Admin controls for scoring mode, teachers, divisions (classes/streams/teams), and student actions
+- `main.js` — LocalStorage data model, scoring logic, rules logic, admin logic, badges, and page rendering
+- `style.css` — Responsive layout and component styling
 
-## Run locally
+## Data model (LocalStorage)
 
-Because this is a static app, you can open `index.html` directly or serve the folder:
+The app stores data in `localStorage` under `behavitracker-data-v2`:
+
+- Settings (free/rules/both scoring mode)
+- Divisions (classes, streams, teams)
+- Teachers
+- Students
+- Behaviour rules
+- Merit/demerit transactions
+
+## Run
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open:
+
+- `http://localhost:8000/index.html`
+- `http://localhost:8000/students.html`
+- `http://localhost:8000/rules.html`
+- `http://localhost:8000/stats.html`
+- `http://localhost:8000/admin.html`

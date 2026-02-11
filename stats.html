@@ -14,14 +14,29 @@
       <a href="students.html">Students</a>
       <a href="rules.html">Rules</a>
       <a class="active" href="stats.html">Statistics</a>
+      <a class="settings-link" href="admin.html" aria-label="Settings">⚙️</a>
     </nav>
-    <button id="reset-data" class="danger" type="button">Reset Defaults</button>
   </header>
 
   <main class="container charts">
     <section class="card"><h2>Score Distribution by Class</h2><canvas id="classChart"></canvas></section>
     <section class="card"><h2>Merits vs Demerits</h2><canvas id="meritChart"></canvas></section>
     <section class="card"><h2>Top Students</h2><canvas id="topChart"></canvas></section>
+
+    <section class="card">
+      <h2>Top Teams (Average Score)</h2>
+      <ol id="team-ranking"></ol>
+    </section>
+
+    <section class="card">
+      <h2>Class Rankings (Average Score)</h2>
+      <ol id="class-ranking"></ol>
+    </section>
+
+    <section class="card">
+      <h2>Majority Status by Class</h2>
+      <ul id="class-majority"></ul>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

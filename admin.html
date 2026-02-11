@@ -14,12 +14,17 @@
       <a href="students.html">Students</a>
       <a href="rules.html">Rules</a>
       <a href="stats.html">Statistics</a>
-      <a class="active" href="admin.html">Admin</a>
+      <a class="settings-link active" href="admin.html" aria-label="Settings">⚙️</a>
     </nav>
-    <button id="reset-data" class="danger" type="button">Reset Defaults</button>
   </header>
 
   <main class="container">
+    <section class="card settings-card">
+      <h2>System Settings</h2>
+      <p class="note">Use this section for high-impact app controls.</p>
+      <button id="reset-data" class="danger" type="button">Reset Defaults</button>
+    </section>
+
     <section class="card">
       <h2>Scoring Mode</h2>
       <form id="mode-form" class="inline-form">
