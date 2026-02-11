@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BehaviTracker | Students</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="students">
+  <header class="topbar">
+    <h1>BehaviTracker</h1>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a class="active" href="students.html">Students</a>
+      <a href="rules.html">Rules</a>
+      <a href="stats.html">Statistics</a>
+    </nav>
+    <button id="reset-data" class="danger" type="button">Reset Defaults</button>
+  </header>
+
+  <main class="container two-col">
+    <section class="card">
+      <h2>Student Detail</h2>
+      <label>Select student
+        <select id="detail-student-select"></select>
+      </label>
+
+      <div id="student-summary" class="summary"></div>
+      <div id="badge-list" class="badge-wrap"></div>
+    </section>
+
+    <section class="card">
+      <h2>Points History</h2>
+      <ul id="history-list" class="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
