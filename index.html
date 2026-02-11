@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom Merit Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Classroom Merit Tracker</h1>
+      <p>A quick tool for teachers to add merit and demerit points for student behaviour.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Add Student</h2>
+      <form id="student-form" class="row-form">
+        <label>
+          Student name
+          <input id="student-name" name="studentName" type="text" placeholder="e.g. Maya Chen" required />
+        </label>
+        <button type="submit">Add student</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Record Behaviour</h2>
+      <form id="points-form" class="row-form">
+        <label>
+          Student
+          <select id="student-select" name="studentId" required>
+            <option value="">Select a student</option>
+          </select>
+        </label>
+
+        <label>
+          Type
+          <select id="point-type" name="pointType" required>
+            <option value="merit">Merit (+)</option>
+            <option value="demerit">Demerit (-)</option>
+          </select>
+        </label>
+
+        <label>
+          Points
+          <input id="point-value" name="pointValue" type="number" min="1" value="1" required />
+        </label>
+
+        <label class="full-row">
+          Reason
+          <input id="point-reason" name="reason" type="text" placeholder="e.g. Helped a classmate" required />
+        </label>
+
+        <button type="submit">Save entry</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Student Scores</h2>
+        <button id="reset-button" class="danger" type="button">Reset all data</button>
+      </div>
+      <div id="student-list" class="student-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="student-card-template">
+    <article class="student-card">
+      <div class="student-header">
+        <h3 class="student-name"></h3>
+        <p class="student-score"></p>
+      </div>
+      <ul class="history"></ul>
+    </article>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
